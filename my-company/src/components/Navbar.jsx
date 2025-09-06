@@ -5,10 +5,9 @@ function Navbar() {
     <nav
       style={{
         display: "flex",
-        gap: "20px",
+        justifyContent: "space-around",
+        backgroundColor: "#333",
         padding: "10px",
-        background: "#333",
-        color: "white",
       }}>
       <Link
         to='/'
