@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useRecipeStore from "./recipeStore";
+import useRecipeStore from "../store/useRecipeStore";
 
 const AddRecipeForm = () => {
   const addRecipe = useRecipeStore((state) => state.addRecipe);
@@ -8,6 +8,7 @@ const AddRecipeForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (!title.trim() || !description.trim()) return; // Prevent empty submissions
     addRecipe({ id: Date.now(), title, description });
     setTitle("");
     setDescription("");
