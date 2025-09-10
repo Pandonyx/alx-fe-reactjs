@@ -1,18 +1,28 @@
+import { useEffect } from "react";
 import useRecipeStore from "./recipeStore";
 import { Link } from "react-router-dom";
 import DeleteRecipeButton from "./DeleteRecipeButton";
 
 const RecipeList = () => {
   const recipes = useRecipeStore((state) => state.recipes);
+  const searchTerm = useRecipeStore((state) => state.searchTerm);
+  const filteredRecipes = useRecipeStore((state) => state.filteredRecipes);
+  const filterRecipes = useRecipeStore((state) => state.filterRecipes);
+
+  useEffect(() => {
+    filterRecipes();
+  }, [searchTerm, recipes, filterRecipes]);
 
   return (
     <div>
       <h2>Recipe List</h2>
-      {recipes.length === 0 ? (
+      {recipes.length > 0 && filteredRecipes.length === 0 && searchTerm ? (
+        <p>No recipes found for "{searchTerm}".</p>
+      ) : recipes.length === 0 ? (
         <p>No recipes yet. Add one above!</p>
       ) : (
         <ul>
-          {recipes.map((recipe) => (
+          {filteredRecipes.map((recipe) => (
             <li key={recipe.id}>
               <Link to={`/recipe/${recipe.id}`}>
                 <h3>{recipe.title}</h3>

@@ -13,7 +13,11 @@ import { create } from "zustand";
  * @property {(newRecipe: Recipe) => void} addRecipe - Function to add a new recipe.
  * @property {(recipes: Recipe[]) => void} setRecipes - Function to set all recipes.
  * @property {(recipeId: number) => void} deleteRecipe - Function to delete a recipe by its ID.
- * @property {(recipeId: number, updatedRecipe: Partial<Recipe>) => void} updateRecipe - Function to update a recipe.
+ * @property {(recipeId: number, updatedData: Partial<Recipe>) => void} updateRecipe - Function to update a recipe.
+ * @property {string} searchTerm - The current search term.
+ * @property {Recipe[]} filteredRecipes - The recipes filtered by the search term.
+ * @property {(term: string) => void} setSearchTerm - Function to update the search term.
+ * @property {() => void} filterRecipes - Function to compute the filtered recipes.
  */
 
 /**
@@ -22,6 +26,8 @@ import { create } from "zustand";
  */
 const useRecipeStore = create((set) => ({
   recipes: [],
+  searchTerm: "",
+  filteredRecipes: [],
   addRecipe: (newRecipe) =>
     set((state) => ({ recipes: [...state.recipes, newRecipe] })),
   setRecipes: (recipes) => set({ recipes }),
@@ -33,6 +39,13 @@ const useRecipeStore = create((set) => ({
     set((state) => ({
       recipes: state.recipes.map((recipe) =>
         recipe.id === recipeId ? { ...recipe, ...updatedData } : recipe
+      ),
+    })),
+  setSearchTerm: (term) => set({ searchTerm: term }),
+  filterRecipes: () =>
+    set((state) => ({
+      filteredRecipes: state.recipes.filter((recipe) =>
+        recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
       ),
     })),
 }));
