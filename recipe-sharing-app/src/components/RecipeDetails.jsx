@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import useRecipeStore from "./RecipeStore";
+import useRecipeStore from "./recipeStore";
 import EditRecipeForm from "./EditRecipeForm";
 import DeleteRecipeButton from "./DeleteRecipeButton";
 

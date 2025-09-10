@@ -1,8 +1,8 @@
 import { useState } from "react";
-import useRecipeStore from "./RecipeStore";
+import useRecipeStore from "./recipeStore";
 
 /**
- * @param {{recipe: import('./RecipeStore').Recipe, onSave: () => void}} props
+ * @param {{recipe: import('./recipeStore').Recipe, onSave: () => void}} props
  */
 const EditRecipeForm = ({ recipe, onSave }) => {
   const updateRecipe = useRecipeStore((state) => state.updateRecipe);
