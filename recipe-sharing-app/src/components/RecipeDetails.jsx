@@ -3,15 +3,20 @@ import { useParams, useNavigate } from "react-router-dom";
 import useRecipeStore from "./recipeStore";
 import EditRecipeForm from "./EditRecipeForm";
 import DeleteRecipeButton from "./DeleteRecipeButton";
+import FavoriteButton from "./FavoriteButton";
+import { shallow } from "zustand/shallow";
 
 const RecipeDetails = () => {
   const { recipeId } = useParams();
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
 
-  const recipe = useRecipeStore((state) =>
-    state.recipes.find((r) => r.id === parseInt(recipeId, 10))
-  );
+  // Select the raw recipes array from the store.
+  const recipes = useRecipeStore((state) => state.recipes);
+
+  // Compute the derived state (the specific recipe) inside the component.
+  // This is more performant and avoids potential re-render issues with selectors.
+  const recipe = recipes.find((r) => r.id === parseInt(recipeId, 10));
 
   if (!recipe) {
     return (
@@ -44,6 +49,7 @@ const RecipeDetails = () => {
               recipeId={recipe.id}
               onAfterDelete={() => navigate("/")}
             />
+            <FavoriteButton recipeId={recipe.id} />
           </div>
         </div>
       )}
