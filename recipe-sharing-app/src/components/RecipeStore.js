@@ -12,7 +12,8 @@ import { create } from "zustand";
  * @property {Recipe[]} recipes - The list of recipes.
  * @property {(newRecipe: Recipe) => void} addRecipe - Function to add a new recipe.
  * @property {(recipes: Recipe[]) => void} setRecipes - Function to set all recipes.
- * @property {(recipeId: number) => void} removeRecipe - Function to remove a recipe by its ID.
+ * @property {(recipeId: number) => void} deleteRecipe - Function to delete a recipe by its ID.
+ * @property {(recipeId: number, updatedRecipe: Partial<Recipe>) => void} updateRecipe - Function to update a recipe.
  */
 
 /**
@@ -24,9 +25,15 @@ const useRecipeStore = create((set) => ({
   addRecipe: (newRecipe) =>
     set((state) => ({ recipes: [...state.recipes, newRecipe] })),
   setRecipes: (recipes) => set({ recipes }),
-  removeRecipe: (recipeId) =>
+  deleteRecipe: (recipeId) =>
     set((state) => ({
       recipes: state.recipes.filter((recipe) => recipe.id !== recipeId),
+    })),
+  updateRecipe: (recipeId, updatedData) =>
+    set((state) => ({
+      recipes: state.recipes.map((recipe) =>
+        recipe.id === recipeId ? { ...recipe, ...updatedData } : recipe
+      ),
     })),
 }));
 
