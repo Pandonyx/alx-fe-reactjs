@@ -1,42 +1,26 @@
-import useRecipeStore from "./recipeStore";
-import { Link } from "react-router-dom";
-import { shallow } from "zustand/shallow";
-import { useMemo } from "react";
+import { useRecipeStore } from "./recipeStore.js";
 
 const FavoritesList = () => {
-  const { recipes, favorites } = useRecipeStore(
-    (state) => ({
-      recipes: state.recipes,
-      favorites: state.favorites,
-    }),
-    shallow
-  );
+  const favorites = useRecipeStore((state) => state.favorites);
+  const recipes = useRecipeStore((state) => state.recipes);
 
-  const favoriteRecipes = useMemo(
-    () => recipes.filter((recipe) => favorites.includes(recipe.id)),
-    [recipes, favorites]
-  );
+  const favoriteRecipes = favorites
+    .map((id) => recipes.find((r) => r.id === id))
+    .filter(Boolean);
+
+  if (favoriteRecipes.length === 0) return <p>No favorites yet.</p>;
 
   return (
-    <div className='p-6 bg-white shadow-md rounded-xl'>
-      <h2 className='mb-4 text-2xl font-semibold text-teal-800'>
-        My Favorites
-      </h2>
-      {favoriteRecipes.length > 0 ? (
-        <ul className='space-y-3'>
-          {favoriteRecipes.map((recipe) => (
-            <li key={recipe.id}>
-              <Link
-                to={`/recipe/${recipe.id}`}
-                className='text-lg text-gray-700 hover:text-teal-600 hover:underline'>
-                {recipe.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className='text-slate-500'>You have no favorite recipes yet.</p>
-      )}
+    <div>
+      <h2>My Favorites</h2>
+      {favoriteRecipes.map((recipe) => (
+        <div
+          key={recipe.id}
+          className='p-2 mb-2 border rounded'>
+          <h3>{recipe.title}</h3>
+          <p>{recipe.description}</p>
+        </div>
+      ))}
     </div>
   );
 };
