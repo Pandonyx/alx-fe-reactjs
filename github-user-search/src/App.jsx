@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./App.css";
-import SearchBar from "./components/SearchBar";
+import SearchBar from "./components/Search";
 import UserProfileCard from "./components/UserProfileCard";
-import { fetchUser } from "./services/githubService";
+import { fetchUserData } from "./services/githubService";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -14,7 +14,7 @@ function App() {
     setError(null);
     setUser(null);
     try {
-      const userData = await fetchUser(username);
+      const userData = await fetchUserData(username);
       setUser(userData);
     } catch (err) {
       setError(`User not found or an error occurred. Please try again.`);

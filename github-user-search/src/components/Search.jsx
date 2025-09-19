@@ -3,34 +3,30 @@ import { useState } from "react";
 const SearchBar = ({ onSearch, isLoading }) => {
   const [username, setUsername] = useState("");
 
-  const handleSearch = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     if (username) {
       onSearch(username);
     }
   };
 
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
-      handleSearch();
-    }
-  };
-
   return (
-    <div className='search-container'>
+    <form
+      className='search-container'
+      onSubmit={handleSubmit}>
       <input
         type='text'
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        onKeyDown={handleKeyPress}
         placeholder='Search for a GitHub user...'
         disabled={isLoading}
       />
       <button
-        onClick={handleSearch}
+        type='submit'
         disabled={isLoading}>
         {isLoading ? "Searching..." : "Search"}
       </button>
-    </div>
+    </form>
   );
 };
 
