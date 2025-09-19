@@ -4,7 +4,7 @@ import { fetchUserData } from "../services/githubService";
 const Search = () => {
   const [username, setUsername] = useState("");
   const [location, setLocation] = useState("");
-  const [repos, setRepos] = useState("");
+  const [minRepos, setMinRepos] = useState("");
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -12,7 +12,7 @@ const Search = () => {
   const [totalCount, setTotalCount] = useState(0);
 
   const handleSearch = async (currentPage) => {
-    if (!username && !location && !repos) {
+    if (!username && !location && !minRepos) {
       return;
     }
     setIsLoading(true);
@@ -22,7 +22,7 @@ const Search = () => {
       const { items, total_count } = await fetchUserData({
         username,
         location,
-        repos,
+        minRepos,
         page: currentPage,
       });
 
@@ -76,8 +76,8 @@ const Search = () => {
         />
         <input
           type='number'
-          value={repos}
-          onChange={(e) => setRepos(e.target.value)}
+          value={minRepos}
+          onChange={(e) => setMinRepos(e.target.value)}
           placeholder='Min repositories...'
           min='0'
           className='flex-grow w-full p-2 text-white placeholder-gray-400 bg-gray-800 border border-gray-600 rounded-md sm:w-auto focus:outline-none focus:ring-2 focus:ring-blue-500'

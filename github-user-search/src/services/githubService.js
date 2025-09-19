@@ -27,30 +27,33 @@ if (GITHUB_API_KEY && GITHUB_API_KEY !== "your_github_api_key_here") {
  * @param {object} params - The search parameters.
  * @param {string} params.username - The GitHub username to search for.
  * @param {string} params.location - The location to filter by.
- * @param {string} params.repos - The minimum number of repositories.
+ * @param {string} params.minRepos - The minimum number of repositories.
  * @param {number} params.page - The page number for pagination.
  * @returns {Promise<{items: object[], total_count: number}>} The search results including detailed user data and total count.
  */
 export const fetchUserData = async ({
   username,
   location,
-  repos,
+  minRepos,
   page = 1,
 }) => {
   const queryParts = [];
   if (username) queryParts.push(`${username} in:login`);
   if (location) queryParts.push(`location:${location}`);
-  if (repos) queryParts.push(`repos:>${repos}`);
+  if (minRepos) queryParts.push(`repos:>${minRepos}`);
 
   if (queryParts.length === 0) {
     return { items: [], total_count: 0 };
   }
 
   const q = queryParts.join(" ");
+  const searchUrl = `https://api.github.com/search/users?q=${encodeURIComponent(
+    q
+  )}`;
 
   try {
-    const searchResponse = await githubApi.get("/search/users", {
-      params: { q, page, per_page: 10 },
+    const searchResponse = await githubApi.get(searchUrl, {
+      params: { page, per_page: 10 },
     });
 
     const { items, total_count } = searchResponse.data;
