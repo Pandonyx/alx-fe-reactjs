@@ -27,7 +27,7 @@ if (GITHUB_API_KEY && GITHUB_API_KEY !== "your_github_api_key_here") {
  * @param {string} username - The GitHub username to search for.
  * @returns {Promise<object>} The user data.
  */
-export const fetchUser = async (username) => {
+export const fetchUserData = async (username) => {
   if (!username) {
     return Promise.reject(new Error("Username is required"));
   }
