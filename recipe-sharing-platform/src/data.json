@@ -3,24 +3,100 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "/public/spaghetticarbonara.jpg"
+    "image": "/spaghetticarbonara.jpg",
+    "ingredients": [
+      "400g spaghetti",
+      "200g pancetta or bacon",
+      "4 large eggs",
+      "100g Parmesan cheese, grated",
+      "2 cloves garlic, minced",
+      "Salt and black pepper to taste",
+      "Fresh parsley for garnish"
+    ],
+    "instructions": [
+      "Bring a large pot of salted water to boil and cook spaghetti according to package directions.",
+      "While pasta cooks, fry pancetta in a large skillet until crispy.",
+      "In a bowl, whisk together eggs, Parmesan cheese, and black pepper.",
+      "Drain pasta, reserving 1 cup of pasta water.",
+      "Add hot pasta to the skillet with pancetta, remove from heat.",
+      "Quickly stir in egg mixture, adding pasta water to create a creamy sauce.",
+      "Serve immediately with extra Parmesan and parsley."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "/public/chickenmasala.jpg"
+    "image": "/chickenmasala.jpg",
+    "ingredients": [
+      "500g chicken breast, cubed",
+      "1 cup yogurt",
+      "2 tbsp tikka masala spice",
+      "400g canned tomatoes",
+      "1 cup heavy cream",
+      "1 onion, diced",
+      "3 cloves garlic, minced",
+      "2 tbsp butter",
+      "Fresh cilantro for garnish"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt and half the tikka masala spice for at least 1 hour.",
+      "Grill or bake marinated chicken until cooked through.",
+      "In a large pan, melt butter and sauté onion and garlic until soft.",
+      "Add remaining tikka masala spice and cook for 1 minute.",
+      "Add canned tomatoes and simmer for 10 minutes.",
+      "Stir in cream and cooked chicken.",
+      "Simmer for 5 more minutes and garnish with cilantro."
+    ]
   },
   {
     "id": 3,
     "title": "Caesar Salad",
     "summary": "A green salad of romaine lettuce and croutons dressed with lemon juice, olive oil, egg, and parmesan cheese.",
-    "image": "/public/caesarsalad.jpg"
+    "image": "/caesarsalad.jpg",
+    "ingredients": [
+      "1 large head romaine lettuce",
+      "1 cup croutons",
+      "1/2 cup Parmesan cheese, shaved",
+      "1/4 cup Caesar dressing",
+      "2 cloves garlic",
+      "2 anchovy fillets (optional)",
+      "1 lemon, juiced",
+      "Black pepper to taste"
+    ],
+    "instructions": [
+      "Wash and chop romaine lettuce into bite-sized pieces.",
+      "In a large bowl, combine lettuce and croutons.",
+      "Drizzle Caesar dressing over the salad.",
+      "Toss gently to coat all ingredients.",
+      "Top with shaved Parmesan cheese.",
+      "Add freshly ground black pepper.",
+      "Serve immediately for best crunch."
+    ]
   },
   {
     "id": 4,
     "title": "Beef Tacos",
     "summary": "Mexican tacos filled with seasoned ground beef, lettuce, cheese, and salsa.",
-    "image": "/public/beeftacos.jpg"
+    "image": "/beeftacos.jpg",
+    "ingredients": [
+      "500g ground beef",
+      "8 taco shells",
+      "1 packet taco seasoning",
+      "1 cup shredded lettuce",
+      "1 cup shredded cheese",
+      "1 tomato, diced",
+      "1/2 cup sour cream",
+      "1/2 cup salsa"
+    ],
+    "instructions": [
+      "Brown ground beef in a large skillet over medium heat.",
+      "Drain excess fat from the beef.",
+      "Add taco seasoning and water according to package directions.",
+      "Simmer for 5 minutes until mixture thickens.",
+      "Warm taco shells according to package directions.",
+      "Fill each shell with seasoned beef.",
+      "Top with lettuce, cheese, tomato, sour cream, and salsa."
+    ]
   }
 ]
