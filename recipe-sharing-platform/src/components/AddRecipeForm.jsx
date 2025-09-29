@@ -88,13 +88,13 @@ const AddRecipeForm = () => {
   };
 
   return (
-    <div className='min-h-screen py-12 bg-gray-50'>
+    <div className='min-h-screen py-8 bg-gray-50 md:py-12'>
       <div className='container max-w-3xl px-4 mx-auto'>
         {/* Header */}
-        <div className='mb-8'>
+        <div className='mb-6 md:mb-8'>
           <Link
             to='/'
-            className='inline-flex items-center mb-6 text-gray-600 transition-colors hover:text-gray-900'>
+            className='inline-flex items-center mb-4 text-gray-600 transition-colors hover:text-gray-900 md:mb-6'>
             <svg
               className='w-5 h-5 mr-2'
               fill='none'
@@ -109,7 +109,7 @@ const AddRecipeForm = () => {
             </svg>
             Back
           </Link>
-          <h1 className='mb-2 text-3xl font-bold text-gray-900'>
+          <h1 className='mb-2 text-2xl font-bold text-gray-900 md:text-3xl'>
             Add New Recipe
           </h1>
           <p className='text-gray-600'>Share your favorite recipe</p>
@@ -118,7 +118,7 @@ const AddRecipeForm = () => {
         {/* Form */}
         <form
           onSubmit={handleSubmit}
-          className='p-8 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm'>
+          className='p-6 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm md:p-8'>
           {/* Title */}
           <div>
             <label
@@ -232,7 +232,7 @@ const AddRecipeForm = () => {
           </div>
 
           {/* Buttons */}
-          <div className='flex gap-4 pt-4'>
+          <div className='flex flex-col gap-4 pt-4 md:flex-row'>
             <button
               type='submit'
               disabled={isSubmitting}
@@ -245,7 +245,7 @@ const AddRecipeForm = () => {
             </button>
             <Link
               to='/'
-              className='px-6 py-3 font-medium text-gray-700 transition border border-gray-300 rounded-lg hover:bg-gray-50'>
+              className='px-6 py-3 font-medium text-center text-gray-700 transition border border-gray-300 rounded-lg hover:bg-gray-50'>
               Cancel
             </Link>
           </div>
