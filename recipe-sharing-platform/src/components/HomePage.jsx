@@ -31,12 +31,21 @@ const HomePage = () => {
     <div className='min-h-screen bg-gray-50'>
       <header className='bg-white shadow-sm'>
         <div className='container px-4 py-6 mx-auto'>
-          <h1 className='text-4xl font-bold text-center text-gray-800'>
-            Recipe Sharing Platform
-          </h1>
-          <p className='mt-2 text-center text-gray-600'>
-            Discover and share amazing recipes
-          </p>
+          <div className='flex flex-col items-center justify-between gap-4 sm:flex-row'>
+            <div className='flex-1 text-center sm:text-left'>
+              <h1 className='text-4xl font-bold text-gray-800'>
+                Recipe Sharing Platform
+              </h1>
+              <p className='mt-2 text-gray-600'>
+                Discover and share amazing recipes
+              </p>
+            </div>
+            <Link
+              to='/add-recipe'
+              className='px-6 py-2 font-medium text-white transition-colors bg-green-600 rounded-md hover:bg-green-700'>
+              + Add Recipe
+            </Link>
+          </div>
         </div>
       </header>
 
