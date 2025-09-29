@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Spaghetti Carbonara",
+    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+    "image": "/public/spaghetticarbonara.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Chicken Tikka Masala",
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
+    "image": "/public/chickenmasala.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Caesar Salad",
+    "summary": "A green salad of romaine lettuce and croutons dressed with lemon juice, olive oil, egg, and parmesan cheese.",
+    "image": "/public/caesarsalad.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Beef Tacos",
+    "summary": "Mexican tacos filled with seasoned ground beef, lettuce, cheese, and salsa.",
+    "image": "/public/beeftacos.jpg"
+  }
+]
